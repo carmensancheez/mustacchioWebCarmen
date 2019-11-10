@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mustacchio</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!--Aqui va el Header, no necesariamente tiene que ser  un navbar puedes poner lo que quieras -->
+    <div class="nav justify-content-center">
+        <img src="~/images/logo.jpg" />
+
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="nav justify-content-center">
+        <li>
+            <!--Tambien podrias crearlo como HTMl normal pero eso da lugares a algunos errores -->
+            @Html.ActionLink("Inicio", "Index", "Home", new { @class = "nav-link" })
+        </li>
+        <!--Para crear Mas opciones solo agregas <li> y el HTML AcionLink-->
+        <li>
+            @Html.ActionLink("Nosotros", "About", "Home", new { @class = "nav-link" })
+        </li>
+        <li>
+            @Html.ActionLink("Galeria", "Galeria", "Home", new { @class = "nav-link" })
+        </li>
+        <li>
+            @Html.ActionLink("Blog", "Blog", "Home", new { @class = "nav-link" })
+        </li>
+        <li>
+            <!--Pasamos 1- Texto, 2 Nombre de la vista, 3-Controlador-->
+            @Html.ActionLink("Contacto", "Contact", "Home", new { @class = "nav-link" })
+        </li>
+
+    </ul>
+
+    <!--El contenido de la vista que estas mostrando-->
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        <!--Footer-->
+        <footer id="footer">
+            <p>&copy; 2023 by Mustacchio. All rights reserved.</p>
+            <ul>
+                <li>
+                    <img src="~/images/icons/icon-twitter.jpg" />
+
+                    <img src="~/images/icons/icon-facebook.jpg" />
+
+                    <img src="~/images/icons/icon-googleplus.jpg" />
+
+                    <img src="~/images/icons/icon-pinterest.jpg" />
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
